@@ -14,4 +14,8 @@ html
   body
     - if user_signed_in?
       = render "layouts/shared/navbar"
+    p.notice
+      = notice
+    p.alert
+      = alert
     = yield

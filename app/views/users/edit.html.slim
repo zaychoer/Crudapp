@@ -1,5 +1,27 @@
-h3 Edit a User
 = form_for @user do |f|
-  p
-    | Enter User's New Name: #{f.text_field :email}
-  = f.submit
+  .card-content
+    p.title.is-4 Edit User
+    .field
+      = f.label "Name", class: "label"
+      .control
+        = f.text_field :email, autofocus: true, autocomplete: "name", class: "input"
+    .field
+      = f.label "Username", class: "label"
+      .control
+        = f.text_field :email, autofocus: true, autocomplete: "username", class: "input"
+    .field
+      = f.label "Email", class: "label"
+      .control
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+    .field
+      label.label Subject
+      .control
+        .select
+          select
+            option Select dropdown
+            option With options
+    .field.is-grouped
+      .control
+        button.button.is-link Submit
+      .control
+        button.button.is-text Cancel

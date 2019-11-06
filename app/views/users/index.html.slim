@@ -1,18 +1,20 @@
-h1.title.is-5 List Users
-table.table.is-striped.is-hoverable
-  thead
-    tr
-      th Nama
-      th Email
-      th Action
-  tbody
-  - @users.each do |user|
-    tr
-      td Lorem
-      td #{user.email}
-      td
-        = link_to "Detail", user_path(user), class: "button is-small is-info"
-        |&nbsp;
-        = link_to "Edit", edit_user_path(user), class: "button is-small is-primary"
-        |&nbsp;
-        = link_to "Delete", user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-small is-danger"
+.card-content
+  h1.title.is-5 List Users
+  table.table.is-hoverable.is-bordered.is-fullwidth
+    thead
+      tr
+        th No
+        th Email
+        th.has-text-centered Action
+    tbody
+    - @users.each_with_index do |user, index|
+      tr
+        td #{index + 1}
+        td #{user.email}
+        td.has-text-centered
+          = link_to "Detail", user_path(user), class: "button is-small is-info"
+          |&nbsp;
+          = link_to "Edit", edit_user_path(user), class: "button is-small is-primary"
+          |&nbsp;
+          - unless current_user == user
+            = link_to "Delete", user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-small is-danger"

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_params, only: %i[show edit update destroy]
 
   def index
-    @users = User.all
+    @users = User.all.order(name: "ASC")
   end
 
   def show

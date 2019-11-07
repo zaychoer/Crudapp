@@ -4,13 +4,17 @@
     thead
       tr
         th No
+        th Name
         th Email
+        th Address
         th.has-text-centered Action
     tbody
     - @users.each_with_index do |user, index|
       tr
         td #{index + 1}
+        td #{user.name}
         td #{user.email}
+        td #{user.address}
         td.has-text-centered
           = link_to "Detail", user_path(user), class: "button is-small is-info"
           |&nbsp;

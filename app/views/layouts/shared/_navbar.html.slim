@@ -15,4 +15,4 @@ nav.navbar.is-warning aria-label=("main navigation") role="navigation"
       .navbar-item
         .buttons
         - if user_signed_in?
-          = link_to "Log out", destroy_user_session_path, method: :delete, class: "button is-light"
+          = link_to "Log out", destroy_user_session_path, method: :delete, class: "button is-danger is-small"

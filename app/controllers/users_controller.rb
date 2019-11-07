@@ -12,14 +12,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update
-
+    @user.update(user_params)
+    flash[:notice] = "User with email #{@user.email} updated"
     redirect_to user_path(@user)
   end
 
   def destroy
     @user.destroy
-
+    flash[:alert] = "User with email #{@user.email} deleted"
     redirect_to users_path
   end
 
@@ -28,5 +28,9 @@ class UsersController < ApplicationController
 
   def set_params
     @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :gender, :address)
   end
 end

@@ -1,27 +1,26 @@
-= form_for @user do |f|
-  .card-content
-    p.title.is-4 Edit User
-    .field
-      = f.label "Name", class: "label"
-      .control
-        = f.text_field :email, autofocus: true, autocomplete: "name", class: "input"
-    .field
-      = f.label "Username", class: "label"
-      .control
-        = f.text_field :email, autofocus: true, autocomplete: "username", class: "input"
-    .field
-      = f.label "Email", class: "label"
-      .control
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
-    .field
-      label.label Subject
-      .control
-        .select
-          select
-            option Select dropdown
-            option With options
-    .field.is-grouped
-      .control
-        button.button.is-link Submit
-      .control
-        button.button.is-text Cancel
+section
+  .hero-body
+    .container
+      .columns.is-centered
+        .column.is-6-table.is-6-desktop.is-6-widescreen
+          = form_for @user do |f|
+            .card-content
+              p.title.is-4 Edit User
+              .field
+                = f.label :name, class: "label"
+                .control
+                  = f.text_field :name, autofocus: true, autocomplete: "name", class: "input"
+              .field
+                = f.label :geder, class: "label"
+                .control
+                  .select
+                    = f.select :gender, [['Female', 'female'], ['Male', 'male']], prompt: "Choose Gender"
+              .field
+                = f.label :address, class: "label"
+                .control
+                  = f.text_area :address, autofocus: true, autocomplete: "address", class: "input"
+              .field.is-grouped
+                .control
+                  button.button.is-primary.is-small.is-rounded Submit
+                .control
+                  button.button.is-alert.is-small.is-rounded Cancel
